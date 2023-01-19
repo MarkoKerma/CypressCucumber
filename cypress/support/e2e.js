@@ -14,14 +14,14 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands';
+import "./commands";
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
-Cypress.Commands.add('iframeCustom', { prevSubject: 'element' }, ($iframe) => {
-  return new Cypress.Promise((resolve) => {
-    $iframe.ready(function () {
-      resolve($iframe.contents().find('body'));
+Cypress.Commands.add("iframeCustom", { prevSubject: "element" }, ($iframe) => {
+    return new Cypress.Promise((resolve) => {
+        $iframe.ready(function () {
+            resolve($iframe.contents().find("body"));
+        });
     });
-  });
 });

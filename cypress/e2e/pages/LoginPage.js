@@ -1,43 +1,44 @@
 class LoginPage {
-  elements = {
-    getEmailInput: () => cy.get('#email'),
-    getPasswordInput: () => cy.get('[name=password]'),
-    getNotRobotRecaptchaCheckbox: () => cy.get('[name="g-recaptcha-response"]'),
-    getRememberMeCheckBox: () => cy.get('#stay_loggedin'),
-    getLoginForm: () => cy.get('form'),
-  };
+    elements = {
+        getEmailInput: () => cy.get("#email"),
+        getPasswordInput: () => cy.get("[name=password]"),
+        getNotRobotRecaptchaCheckbox: () =>
+            cy.get('[name="g-recaptcha-response"]'),
+        getRememberMeCheckBox: () => cy.get("#stay_loggedin"),
+        getLoginForm: () => cy.get("form"),
+    };
 
-  OpenForumPage() {
-    cy.visit('/login');
-  }
+    OpenForumPage() {
+        cy.visit("/login");
+    }
 
-  EmailInput() {
-    return this.elements.getEmailInput();
-  }
+    EmailInput() {
+        return this.elements.getEmailInput();
+    }
 
-  PasswordInput() {
-    return this.elements.getPasswordInput();
-  }
+    PasswordInput() {
+        return this.elements.getPasswordInput();
+    }
 
-  NotRobotCheckBox() {
-    return this.elements.getNotRobotRecaptchaCheckbox();
-  }
+    NotRobotCheckBox() {
+        return this.elements.getNotRobotRecaptchaCheckbox();
+    }
 
-  RememberMeCheckBox() {
-    return this.elements.getRememberMeCheckBox();
-  }
+    RememberMeCheckBox() {
+        return this.elements.getRememberMeCheckBox();
+    }
 
-  loginToApp(email, password) {
-    Cypress.on('uncaught:exception', (err, runnable) => {
-      return false;
-    });
-    this.OpenForumPage();
-    this.EmailInput().clear().type(email);
-    this.PasswordInput().clear().type(password);
-    this.NotRobotCheckBox().click();
-    this.RememberMeCheckBox().click();
-    this.elements.getLoginForm().submit();
-  }
+    loginToApp(email, password) {
+        Cypress.on("uncaught:exception", (err, runnable) => {
+            return false;
+        });
+        this.OpenForumPage();
+        this.EmailInput().clear().type(email);
+        this.PasswordInput().clear().type(password);
+        this.NotRobotCheckBox().click();
+        this.RememberMeCheckBox().click();
+        this.elements.getLoginForm().submit();
+    }
 }
 
 export default LoginPage;

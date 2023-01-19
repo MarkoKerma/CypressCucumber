@@ -1,43 +1,46 @@
 class WidgetPage {
-  elements = {
-    getOrderAmountInput: () => cy.get('[name=order_amount]'),
-    getApplyButton: () => cy.get('#btn_create_widget'),
-    getWidgetHTML: () => cy.get('#widget_html'),
-    getCopyWidgetHTML: () => cy.get('[value="Copy to Clipboard"]'),
-  };
+    elements = {
+        getOrderAmountInput: () => cy.get("[name=order_amount]"),
+        getApplyButton: () => cy.get("#btn_create_widget"),
+        getWidgetHTML: () => cy.get("#widget_html"),
+        getCopyWidgetHTML: () => cy.get('[value="Copy to Clipboard"]'),
+    };
 
-  OrderAmountInput() {
-    return this.elements.getOrderAmountInput();
-  }
+    OrderAmountInput() {
+        return this.elements.getOrderAmountInput();
+    }
 
-  typeOrderAmount(amount) {
-    this.OrderAmountInput().clear().type(amount);
-  }
+    typeOrderAmount(amount) {
+        this.OrderAmountInput().clear().type(amount);
+    }
 
-  applyWidgetChanges() {
-    this.elements.getApplyButton().click();
-  }
+    applyWidgetChanges() {
+        this.elements.getApplyButton().click();
+    }
 
-  widgetContainsValue(amount) {
-    this.elements
-      .getWidgetHTML()
-      .invoke('val')
-      .should('contain', `order_amount=${amount}`);
-  }
+    widgetContainsValue(amount) {
+        this.elements
+            .getWidgetHTML()
+            .invoke("val")
+            .should("contain", `order_amount=${amount}`);
+    }
 
-  copyWidgetCode() {
-    return this.elements.getWidgetHTML().invoke('val').as('WidgetCode');
-  }
+    copyWidgetCode() {
+        this.elements
+            .getWidgetHTML()
+            .invoke("val")
+            .then((htmlCode) => {
+                let code = htmlCode;
+                cy.wrap(code).as("widgetHTMLCode");
+            });
+    }
 
-  replaceWidgetCode() {
-    this.elements
-      .getWidgetHTML()
-      .invoke('val')
-      .then((text) => {
-        cy.log(text);
-        cy.get('html').invoke('prop', 'innerHTML', text);
-      });
-  }
+    replaceWidgetCode() {
+        cy.get('@widgetHTMLCode').then((htmlCode) => {
+            cy.log(htmlCode);
+            cy.get("html").invoke("prop", "innerHTML", htmlCode);
+        });
+    }
 }
 
 export default WidgetPage;
