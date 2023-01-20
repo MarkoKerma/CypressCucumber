@@ -1,6 +1,6 @@
 import "cypress-iframe";
 
-class WidgetCodePage {
+class widgetCodePage {
     elements = {
         getTotalAmountInFiat: () => cy.get("#totalAmountInFiat"),
         getFrameLocator: () => '[allow="clipboard-write *"]',
@@ -27,4 +27,4 @@ class WidgetCodePage {
     }
 }
 
-export default WidgetCodePage;
+export default widgetCodePage;

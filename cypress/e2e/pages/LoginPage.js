@@ -1,4 +1,4 @@
-class LoginPage {
+class loginPage {
     elements = {
         getEmailInput: () => cy.get("#email"),
         getPasswordInput: () => cy.get("[name=password]"),
@@ -39,4 +39,4 @@ class LoginPage {
     }
 }
 
-export default LoginPage;
+export default loginPage;

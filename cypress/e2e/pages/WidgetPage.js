@@ -1,4 +1,4 @@
-class WidgetPage {
+class widgetPage {
     elements = {
         getOrderAmountInput: () => cy.get("[name=order_amount]"),
         getApplyButton: () => cy.get("#btn_create_widget"),
@@ -43,4 +43,4 @@ class WidgetPage {
     }
 }
 
-export default WidgetPage;
+export default widgetPage;

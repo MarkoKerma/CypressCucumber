@@ -1,4 +1,4 @@
-class DashboardPage {
+class dashboardPage {
     elements = {
         getLoginButton: () => cy.get('[title="Log In"]'),
         getAccountMenu: () => cy.get('[title="Account"]'),
@@ -22,4 +22,4 @@ class DashboardPage {
     }
 }
 
-export default DashboardPage;
+export default dashboardPage;

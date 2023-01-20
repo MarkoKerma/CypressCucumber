@@ -1,4 +1,4 @@
-class TwoFactorPage {
+class twoFactorPage {
     elements = {
         getTwoFactorInput: () => cy.get("[name=code]"),
         getVerifyButton: () => cy.get("[value=VERIFY]"),
@@ -16,4 +16,4 @@ class TwoFactorPage {
     }
 }
 
-export default TwoFactorPage;
+export default twoFactorPage;

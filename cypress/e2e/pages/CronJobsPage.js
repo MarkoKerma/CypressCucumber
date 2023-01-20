@@ -1,4 +1,4 @@
-class CronJobsPage {
+class cronJobsPage {
     elements = {
         getExecAllButton: () => cy.get("button").contains("exec all"),
     };
@@ -23,4 +23,4 @@ class CronJobsPage {
     }
 }
 
-export default CronJobsPage;
+export default cronJobsPage;
