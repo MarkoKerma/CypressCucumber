@@ -16,7 +16,7 @@ class widgetCodePage {
             .click();
     }
 
-    TotalAmountInFIAT(amountValue) {
+    totalAmountInFIAT(amountValue) {
         cy.frameLoaded(this.elements.getFrameLocator());
         cy.iframe(this.elements.getFrameLocator())
             .find(this.elements.getOrderAmountBox())

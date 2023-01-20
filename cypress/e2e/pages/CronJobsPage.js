@@ -11,7 +11,7 @@ class cronJobsPage {
         this.elements.getExecAllButton().click();
     }
 
-    cronJobBox() {
+    waitCronsToFinish() {
         cy.frameLoaded("#cron-3");
         cy.iframe("#cron-3").should(
             "contain",

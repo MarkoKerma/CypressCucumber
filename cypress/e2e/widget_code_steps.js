@@ -48,7 +48,7 @@ When("open Cron Jobs page", () => {
 
 When("start Cron Jobs", () => {
     cronJobsPg.execAllCrons();
-    cronJobsPg.cronJobBox();
+    cronJobsPg.waitCronsToFinish();
 });
 
 When("use Widget Code in browser", () => {
@@ -60,5 +60,5 @@ When("confirm I am not a robot", () => {
 });
 
 Then("widget will open with correct amount {string}", (correctAmount) => {
-    widgetCodePg.TotalAmountInFIAT(correctAmount);
+    widgetCodePg.totalAmountInFIAT(correctAmount);
 });
