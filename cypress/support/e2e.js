@@ -20,7 +20,7 @@ import "./commands";
 // require('./commands')
 Cypress.Commands.add("iframeCustom", { prevSubject: "element" }, ($iframe) => {
     return new Cypress.Promise((resolve) => {
-        $iframe.ready(function () {
+        $iframe.ready(() => {
             resolve($iframe.contents().find("body"));
         });
     });

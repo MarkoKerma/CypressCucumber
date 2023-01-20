@@ -29,9 +29,7 @@ class LoginPage {
     }
 
     loginToApp(email, password) {
-        Cypress.on("uncaught:exception", (err, runnable) => {
-            return false;
-        });
+        Cypress.on("uncaught:exception", () => false);
         this.OpenForumPage();
         this.EmailInput().clear().type(email);
         this.PasswordInput().clear().type(password);
