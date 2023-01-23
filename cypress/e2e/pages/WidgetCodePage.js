@@ -8,6 +8,9 @@ class widgetCodePage {
         getOrderAmountBox: () => "#orderAmountBox",
     };
 
+    /**
+     * Clicks "I am not robot" checkbox on widget code
+     */
     clickNotRobotCheckBox() {
         cy.frameLoaded(this.elements.getFrameLocator());
         cy.iframe(this.elements.getFrameLocator())
@@ -16,6 +19,10 @@ class widgetCodePage {
             .click();
     }
 
+    /**
+     * Check total amount value of FIAT in widget code
+     * @param {String} amountValue - amount added in widget code
+     */
     totalAmountInFIAT(amountValue) {
         cy.frameLoaded(this.elements.getFrameLocator());
         cy.iframe(this.elements.getFrameLocator())
