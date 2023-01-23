@@ -23,11 +23,3 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-
-Cypress.Commands.add("iframeCustom", { prevSubject: "element" }, ($iframe) => {
-    return new Cypress.Promise((resolve) => {
-        $iframe.ready(() => {
-            resolve($iframe.contents().find("body"));
-        });
-    });
-});
