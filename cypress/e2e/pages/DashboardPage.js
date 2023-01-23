@@ -13,12 +13,8 @@ class dashboardPage {
         return this.elements.getAccountMenu();
     }
 
-    WidgetMenu() {
-        return this.elements.getWidgetMenu();
-    }
-
     openWidgets() {
-        this.WidgetMenu().click();
+        this.elements.getWidgetMenu().click();
     }
 }
 
