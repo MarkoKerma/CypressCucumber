@@ -6,7 +6,7 @@ class twoFactorPage {
     };
 
     /**
-     *  Finds wo factor input field
+     *  Finds two factor input field
      * @returns Cypress element
      */
     TwoFactorInput() {
