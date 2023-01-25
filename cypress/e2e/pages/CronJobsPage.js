@@ -1,8 +1,9 @@
 class cronJobsPage {
     elements = {
         getExecAllButton: () => cy.get("button").contains("exec all"),
+        btcCronFrameId: "#cron-3",
+        externalExchangeCronId: "#cron-41",
     };
-
     /**
      * Opens CronJobs page on ForumPay
      */
@@ -23,14 +24,19 @@ class cronJobsPage {
      * second with id 41 - externalExchangeGetSettings zbx
      */
     waitCronsToFinish() {
-        cy.frameLoaded("#cron-3");
-        cy.iframe("#cron-3").should(
+        const expectedBtcCronMsg = "Running test run !!one time check only!!";
+        const expectedExtExcCronMsg = "Exchange zbx not enabled!";
+        cy.frameLoaded(this.elements.btcCronFrameId);
+        cy.iframe(this.elements.btcCronFrameId).should(
             "contain",
-            "Running test run !!one time check only!!"
+            expectedBtcCronMsg
         );
 
-        cy.frameLoaded("#cron-41");
-        cy.iframe("#cron-41").should("contain", "Exchange zbx not enabled!");
+        cy.frameLoaded(this.elements.externalExchangeCronId);
+        cy.iframe(this.elements.externalExchangeCronId).should(
+            "contain",
+            expectedExtExcCronMsg
+        );
     }
 }
 
